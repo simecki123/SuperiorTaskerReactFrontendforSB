@@ -47,7 +47,8 @@
   }
   
   .login-input {
-    width: 100%;
+    
+    width: 95%;
     padding: 8px;
     border: 1px solid #555;
     border-radius: 5px;
@@ -73,6 +74,12 @@
   .register-link {
     color: #3498db;
   }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
   
   /* Responsive styles for smaller screens */
   @media screen and (max-width: 600px) {

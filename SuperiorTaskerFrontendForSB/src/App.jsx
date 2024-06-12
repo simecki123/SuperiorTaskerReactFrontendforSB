@@ -9,16 +9,20 @@ import PropTypes from 'prop-types';
 
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token);
-  }, []);
+const ProtectedRoute = ({ children }) => {
+  const token = localStorage.getItem('token');
 
-  const ProtectedRoute = ({ children }) => {
-    return isAuthenticated ? children : <Navigate to="/" />;
+    if (!token) {
+      return <Navigate to="/" />;
+    }
+
+    return children;
   };
+
+
+
 
   ProtectedRoute.propTypes = {
     children: PropTypes.node.isRequired

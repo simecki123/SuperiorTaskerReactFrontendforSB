@@ -2,7 +2,7 @@ import './loginDark.css'
 import logo from '../../public/SuperiorTasker.png'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { login, getUserByEmail } from '../services/api';
+import { login } from '../services/api';
 
 function LoginScreen() {
     const [email, setEmail] = useState('');
@@ -13,13 +13,17 @@ function LoginScreen() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const loginRequest = {email: email, password: password};
-            console.log(loginRequest);
-            const res = await login(loginRequest);
+            
+            const res = await login({email, password});
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', res.data.user);
             console.log(res.data.token);
             console.log(res.data.user);
+            if(res.data.token !== null || res.data.user !== null) {
+                navigate('/mainpage');
+            }
+            
+            
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
         }
@@ -38,14 +42,14 @@ function LoginScreen() {
                     <label className='login-label'>Email: </label>
                 </div>
                 <div className='login-form-group'>
-                    <input className='login-input' type="email" placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} />
+                    <input className='login-input' type="email" maxLength={30} placeholder="Enter your email" value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
 
                 <div className="login-form-group">
                     <label className='login-label'>Password: </label>
                 </div>
                 <div className='login-form-group'>
-                    <input className='login-input' type="password" placeholder="Enter your password" value={password} onChange={e => setPassword(e.target.value)} />
+                    <input className='login-input' maxLength={20} type="password" placeholder="Enter your password" value={password} onChange={e => setPassword(e.target.value)} />
                 </div>
                 <button type="submit" className="login-button">LOGIN</button>
             </form>
