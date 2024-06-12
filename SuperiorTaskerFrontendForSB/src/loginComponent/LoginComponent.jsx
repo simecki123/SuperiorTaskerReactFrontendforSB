@@ -16,7 +16,10 @@ function LoginScreen() {
             const loginRequest = {email: email, password: password};
             console.log(loginRequest);
             const res = await login(loginRequest);
-            console.log(res);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', res.data.user);
+            console.log(res.data.token);
+            console.log(res.data.user);
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
         }
