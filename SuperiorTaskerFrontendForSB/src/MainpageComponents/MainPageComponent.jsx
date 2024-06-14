@@ -55,7 +55,7 @@ function MainPageComponent() {
         }
     }, []);
 
-    console.log("projectList: " + projectList);
+    console.log(projectList);
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return (
@@ -68,7 +68,7 @@ function MainPageComponent() {
                     <ProfileStatsComponent user={user} />
                 </div>
                 <div className='listOfProjects'>
-                    <ListOfProjectsComponent user={user} projectList={projectList} />
+                    <ListOfProjectsComponent user={user} projectList={projectList} setProjectList={setProjectList} />
                 </div>
             </div>
         </div>

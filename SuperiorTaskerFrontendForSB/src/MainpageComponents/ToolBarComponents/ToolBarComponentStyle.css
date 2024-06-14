@@ -2,16 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333; /* Dark background color for the toolbar */
+    background-color: #333; 
     padding: 10px;
-}
-
-.tool-bar-left-section {
+  }
+  
+  .tool-bar-left-section {
     display: flex;
     align-items: center;
-}
-
-.tool-bar-dropdown {
+  }
+  
+  .tool-bar-dropdown {
     position: relative;
   }
   
@@ -42,57 +42,56 @@
     background-color: #626262;
     
   }
-
-.hamburger-btn {
+  
+  .hamburger-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     width: 50px;
-    background-color: #444; /* Dark background color for the button */
+    background-color: #444;
     border: none;
     cursor: pointer;
     transition: background-color 0.4s;
     margin-right: 10px;
-}
-
-.hamburger-btn:hover {
-    background-color: #555; /* Darker color on hover */
-}
-
-.hamburger-container {
+  }
+  
+  .hamburger-btn:hover {
+    background-color: #555;
+  }
+  
+  .hamburger-container {
     display: flex;
     flex-direction: column;
-}
-
-.hamburger-bar {
+  }
+  
+  .hamburger-bar {
     width: 25px;
     height: 5px;
-    background-color: #fff; /* White color for the bars */
+    background-color: #fff;
     margin: 3px 0;
     transition: 0.4s;
-}
-
-.tool-bar-small-logo {
+  }
+  
+  .tool-bar-small-logo {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-}
-
-.tool-bar-name-surname {
+  }
+  
+  .tool-bar-name-surname {
     font-size: 1.5em;
-    color: #fff; /* White color for the text */
+    color: #fff;
     margin: 0;
-}
-
-.tool-bar-right-section {
+  }
+  
+  .tool-bar-right-section {
     display: flex;
     align-items: center;
-}
-
-.settings-btn {
-
+  }
+  
+  .settings-btn {
     font-size: 2rem;
     display: flex;
     align-items: center;
@@ -104,22 +103,20 @@
     cursor: pointer;
     margin-left: 10px;
     margin-right: 10px;
-}
-
-.settings-btn:hover {
-    background-color: #555; /* Darker color on hover */
-}
-
-.settings-btn img {
+  }
+  
+  .settings-btn:hover {
+    background-color: #555;
+  }
+  
+  .settings-btn img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-}
-
-.toolbar-break {
+  }
+  
+  .toolbar-break {
     border: 1px solid #555;
     margin: 10px 0;
-}
-
-
-
+  }
+  
