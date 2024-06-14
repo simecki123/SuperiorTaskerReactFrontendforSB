@@ -7,9 +7,11 @@ import PropTypes from 'prop-types';
 
 function ListOfProjectsComponent({user, projectList, setProjectList}) {
     const [searchTerm, setSearchTerm] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleDeleteProject = async (projectId) => {
         try {
+        setLoading(true);
         // Fetch all tasks related to the project
         const response = await findAllTasksOfTheProject(projectId);
         const tasks = response.data;
@@ -22,8 +24,10 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
 
         // Remove the project from the local state
         setProjectList(prevList => prevList.filter(project => project.id !== projectId));
+        setLoading(false);
         } catch (error) {
-        console.error('Failed to delete project and its tasks:', error);
+            setLoading(false);
+            console.error('Failed to delete project and its tasks:', error);
         }
     };
 
@@ -70,6 +74,8 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         const updatedList = projectList.filter(project => project.title.toLowerCase().includes(searchTermLowerCase));
         setProjectList(updatedList.concat(projectList.filter(project => !project.title.toLowerCase().includes(searchTermLowerCase))));
     };
+
+    if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return(
         <>
