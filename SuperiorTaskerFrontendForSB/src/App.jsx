@@ -7,6 +7,7 @@ import RegisterScreen from './registerComponent/RegisterComponent';
 import TryMeComponent from './TryMePage/TryMeComponent';
 import PropTypes from 'prop-types';
 import MainPageComponent from './MainpageComponents/MainPageComponent';
+import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
 
 
 function App() {
@@ -38,6 +39,11 @@ const ProtectedRoute = ({ children }) => {
             <Route path="/mainpage" element={
               <ProtectedRoute>
                 <MainPageComponent />
+              </ProtectedRoute>
+            } />
+            <Route path='/editProfile' element={
+              <ProtectedRoute>
+                <EditProfileComponent />
               </ProtectedRoute>
             } />
         </Routes>

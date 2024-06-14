@@ -11,7 +11,7 @@ function ProfileStatsComponent({user}) {
                 <h1 className='profile-component-big-name-surname'>{`${user.firstName} ${user.lastName}`}</h1>
                 <h3 className='profile-component-profile-description'>Description</h3>
                 <p className='profile-component-description-text'>{user.description}</p>
-                <Link to="/mainpage">
+                <Link to="/editProfile">
                     <button className='profile-component-edit-button'>EDIT PROFILE</button>
                 </Link>
             </div>
