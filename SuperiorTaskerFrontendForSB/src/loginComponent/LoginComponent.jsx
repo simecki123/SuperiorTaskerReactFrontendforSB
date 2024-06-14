@@ -15,8 +15,8 @@ function LoginScreen() {
         try {
             
             const res = await login({email, password});
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('user', res.data.user);
+            localStorage.setItem('token', JSON.stringify(res.data.token));
+            localStorage.setItem('user', JSON.stringify(res.data.user));
             console.log(res.data.token);
             console.log(res.data.user);
             if(res.data.token !== null || res.data.user !== null) {

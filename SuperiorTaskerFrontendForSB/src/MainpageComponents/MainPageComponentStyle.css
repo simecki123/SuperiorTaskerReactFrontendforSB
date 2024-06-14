@@ -1,0 +1,70 @@
+/* Adjustments for MainPageScreen component */
+
+/* Common styles for both large and small screens */
+.main-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Adjust as needed */
+    overflow-x: auto; /* Add horizontal scrollbar */
+  }
+  
+  .main-part {
+    display: flex;
+    flex: 1; /* Take remaining space */
+  }
+  
+  .profile-part {
+    width: 25%;
+    margin-right: 10px;
+  }
+  
+  .listOfProjects {
+    width: 74%;
+    position: relative;
+    right: 0;
+    height: 100%;
+  }
+
+  /* Loading Screen */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  color: white;
+  font-size: 1.5rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+/* Loader Animation */
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  
+  /* Responsive styles for smaller screens */
+  @media screen and (max-width: 600px) {
+    .profile-part, .listOfProjects {
+      width: auto; /* Let them take the full width */
+      margin-right: 0; /* Remove margin */
+    }
+  }
+  

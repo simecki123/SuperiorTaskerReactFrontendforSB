@@ -1,0 +1,46 @@
+
+
+.Profile-component { 
+    height: 95%;
+    left: 0;
+    background-color: #333; /* Dark background color */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-component-big-logo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-component-big-name-surname {
+    font-size: 1.5em;
+    color: #fff; /* White text color */
+}
+
+.profile-component-profile-description {
+    font-size: 1.2em;
+    color: #ccc; /* Lighter text color */
+}
+
+.profile-component-description-text {
+    color: #fff; /* Even lighter text color */
+}
+
+.profile-component-edit-button {
+    background-color: #3498db; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.profile-component-edit-button:hover {
+    background-color: #2980b9; /* Darker blue color on hover */
+}
+
+

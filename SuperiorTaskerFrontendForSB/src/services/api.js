@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const API_URL = 'http://localhost:8080';
 const api = axios.create({
   baseURL: API_URL,
@@ -8,42 +9,47 @@ const api = axios.create({
   },
 });
 
-// Interceptor to add JWT token to requests and handle token expiration
 api.interceptors.request.use(
   (config) => {
+    console.log('Request interceptor called');
     const token = localStorage.getItem('token');
     if (token) {
-      const decodedToken = JSON.parse(atob(token.split('.')[1]));
-      if (decodedToken.exp * 1000 < Date.now()) {
-        // Token has expired, redirect to login
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        window.location = '/';
-        return Promise.reject('Token expired');
-      }
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    console.log('Request interceptor error:', error);
+    return Promise.reject(error);
+  }
 );
 
-// Interceptor to handle response errors
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log('Response interceptor called:', response);
+    return response;
+  },
   (error) => {
+    console.log('Response interceptor error:', error);
     if (error.response?.status === 401) {
       // Unauthorized, redirect to login
+      console.log('Unauthorized, redirecting to login');
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       if (window.location.pathname !== '/') {
         window.location.href = '/';
-    }    
-      
+      }
+    } else if (error.response?.status === 403) {
+      console.log('Forbidden, redirecting to login');
+      if (window.location.pathname !== '/') {
+        window.location.href = '/';
+      }
     }
     return Promise.reject(error);
   }
 );
+
+
 
 // --------------------User reqquests----------------------
 export const login = (loginData) => api.post('/api/login', loginData);
@@ -57,7 +63,7 @@ export const updateUser = (id, userData) => api.put(`/user/updateUser/${id}`, us
 export const saveProject = (projectData) => api.post('/projects/saveProject', {projectData});
 export const deleteProject = (id) => api.delete(`/projects/deleteProject/${id}`);
 export const getProjectById = (id) => api.get(`/projects/getProjectById/${id}`);
-export const findAllProjects = (userId) => api.get(`/projects/users/findAllProjects/${userId}`);
+export const findAllProjects = (userId) => api.get(`/projects/findAllProjects/${userId}`);
 export const updateProject = (id, updateProject) => api.put(`/projects/users/updateProject/${id}`, updateProject);
 
 // ---------------------Task requests----------------------

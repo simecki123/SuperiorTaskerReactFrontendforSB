@@ -6,6 +6,7 @@ import LoginScreen from './loginComponent/LoginComponent';
 import RegisterScreen from './registerComponent/RegisterComponent';
 import TryMeComponent from './TryMePage/TryMeComponent';
 import PropTypes from 'prop-types';
+import MainPageComponent from './MainpageComponents/MainPageComponent';
 
 
 function App() {
@@ -36,7 +37,7 @@ const ProtectedRoute = ({ children }) => {
             <Route path="/register" element={<RegisterScreen />} />
             <Route path="/mainpage" element={
               <ProtectedRoute>
-                <TryMeComponent />
+                <MainPageComponent />
               </ProtectedRoute>
             } />
         </Routes>

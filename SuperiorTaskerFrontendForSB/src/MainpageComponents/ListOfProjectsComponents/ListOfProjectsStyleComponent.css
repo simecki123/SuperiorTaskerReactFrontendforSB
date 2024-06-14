@@ -1,0 +1,150 @@
+.project-part-container {
+    height: 500px;
+    overflow-y: auto; /* Add scrollbar if content exceeds container height */
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+  }
+  
+
+  
+  .project-part-topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px;
+    background-color: #333;
+    
+  }
+  
+  .project-part-search-container {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .project-part-search-form {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+  }
+  
+  .project-part-search-bar {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.4rem;
+    border: 1px solid #555;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .project-part-submit-button {
+    font-size: 1.4rem;
+    background-color: #2196f3;
+    border-radius: 10px;
+    width: 60px;
+    height: 50px;
+  }
+  
+  .project-part-submit-button:hover {
+    background-color: #0b6ab7;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content-project-part-span {
+    width: 200px;
+    height: 50px;
+    display: block;
+    padding: 8px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .dropdown-content-project-part-span:hover {
+    background-color: #626262;
+  }
+  
+  
+  .project-part-dropdown-btn {
+    color: #fff;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: #2196f3;
+    margin-right: 50px;
+  }
+  
+  .project-part-dropdown-btn:hover {
+    background-color: #0b6ab7;
+  }
+
+ 
+  
+  
+  .project-part-create-new-project-btn {
+    color: #fff;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    background-color: #2196f3;
+    margin-right: 50px;
+  }
+  
+  .project-part-create-new-project-btn:hover {
+    background-color: #0b6ab7;
+  }
+  
+  .project-part-break {
+    border: 1px solid #555;
+    margin: 10px 0;
+  }
+  
+  .project-part-unordered-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .project-part-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-part-delete-button,
+  .project-part-move-button {
+    color: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    background-color: #2196f3;
+    margin-right: 10px;
+  }
+  
+  .project-part-delete-button:hover,
+  .project-part-move-button:hover {
+    background-color: #0b6ab7;
+  }
+  
