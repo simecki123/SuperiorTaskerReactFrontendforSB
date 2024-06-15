@@ -60,7 +60,7 @@ export const getUserByEmail = (email) => api.get(`/user/findByEmail/${email}`);
 export const updateUser = (id, userData) => api.put(`/user/updateUser/${id}`, userData);
 
 // ---------------------Project requests-------------------
-export const saveProject = (projectData) => api.post('/projects/saveProject', {projectData});
+export const saveProject = (projectData) => api.post('/projects/saveProject', projectData);
 export const deleteProject = (id) => api.delete(`/projects/deleteProject/${id}`);
 export const getProjectById = (id) => api.get(`/projects/getProjectById/${id}`);
 export const findAllProjects = (userId) => api.get(`/projects/findAllProjects/${userId}`);

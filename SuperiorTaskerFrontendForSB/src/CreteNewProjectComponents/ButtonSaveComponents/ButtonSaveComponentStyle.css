@@ -1,0 +1,25 @@
+.save-button-body{
+    width: 100%;
+    background-color: #333;
+}
+
+.save-all {
+    background-color: #333;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    
+}
+
+.save-btn {
+    background-color: #2196f3;
+    border-radius: 10px;
+    color: #fff;
+    height: 60px;
+    width: 200px; 
+    margin-bottom: 20PX;
+}
+
+.save-btn:hover {
+    background-color: #0b6ab7;
+}

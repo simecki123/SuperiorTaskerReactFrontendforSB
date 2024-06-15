@@ -108,7 +108,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
                         </div>
                     </div>
 
-                    <Link to="/newproject">
+                    <Link to="/createnewproject">
                         <button className="project-part-create-new-project-btn">New Project</button>
                     </Link>
                 </div>

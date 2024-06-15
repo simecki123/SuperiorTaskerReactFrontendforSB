@@ -1,0 +1,81 @@
+
+.toDoList-create-new-project {
+    height: 500px;
+    overflow-y: auto;
+      background-color: #333; /* Dark background color */
+      color: #fff; /* Text color */
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+  
+    
+   .todo-list-createproject-title {
+      color: #fff;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    
+    .todo-list-create-project-enter-task-input { 
+      width: 70%; /* Adjust as needed */
+      padding: 10px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #444; /* Darker input background color */
+      color: #fff; /* Text color */
+    }
+    
+    .add-button-create-new-project{
+      width: 100px;
+      height: 60px;
+      background-color: #2196f3; 
+      color: #fff; /* Text color */
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .add-button-create-new-project:hover {
+      background-color: #0b6ab7; /* Darker green color on hover */
+    }
+    
+  .todo-list-create-project-unordered-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+  .todo-list-create-project-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #444; /* Darker list item background color */
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+  .text-create-new-project-task-title {
+      width: 70%; /* Adjust as needed */
+    }
+    
+  .text-create-new-project-task-delete-button,
+  .text-create-new-project-task-move-button {
+      width: 70px;
+      height: 60px;
+      background-color: #2196f3; /* Red button color */
+      color: #fff; /* Text color */
+      border: none;
+      padding: 5px;
+      border-radius: 5px; 
+      cursor: pointer;
+    }
+    
+    .text-create-new-project-task-delete-button:hover,
+    .text-create-new-project-task-move-button:hover {
+      background-color: #0b6ab7; /* Darker red color on hover */
+    }
+    
+  
+  
