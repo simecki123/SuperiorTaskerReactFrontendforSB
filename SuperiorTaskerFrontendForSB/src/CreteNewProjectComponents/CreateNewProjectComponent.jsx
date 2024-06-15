@@ -6,12 +6,18 @@ import ToDoListComponent from './ToDoListComponents/ToDoListComponent';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { saveProject, findAllProjects, saveTask } from '../services/api';
+import { saveProject, saveTask } from '../services/api';
 
 function CreateNewProjectComponent() {
     const [user, setUser] = useState(null);
-    const [newTaskList, setNewTasksList] = useState([]);
-    const [newProject, setNewProject] = useState(null);
+    const [newTaskList, setNewTaskList] = useState([]);
+    const [newProject, setNewProject] = useState({
+        userId: '',
+        title: '',
+        description: '',
+        date: '',
+        completion: '0%'
+    });
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
@@ -40,20 +46,35 @@ function CreateNewProjectComponent() {
         }
     };
 
+    
+
     const handleSave = async () => {
+        if (!newProject.title.trim() || !newProject.description.trim() || !newProject.date.trim() ) {
+            alert("All project fields must be filled.");
+            return;
+        }
+
+        if (newProject.date.trim() === 'dd.mm.yyyy') {
+            alert("Date must be in the format dd-mm-yyyy.");
+            return;
+        }
+
+        if (newTaskList.length === 0) {
+            alert("You must add at least one task.");
+            return;
+        }
+
         try {
             const savedProject = await saveProject(newProject);
             const projectId = savedProject.data.id;
-    
+
             const tasksWithProjectId = newTaskList.map(task => ({
                 ...task,
                 projectId
             }));
-    
-            await Promise.all(
-                tasksWithProjectId.map(task => saveTask(task))
-            );
-    
+
+            await Promise.all(tasksWithProjectId.map(task => saveTask(task)));
+
             navigate('/mainpage');
         } catch (error) {
             console.error('Failed to save project and tasks:', error);
@@ -72,7 +93,7 @@ function CreateNewProjectComponent() {
                     <ProjectDetailsComponent user={user} setNewProject={setNewProject} />
                 </div>
                 <div className='add-new-task'>
-                    <ToDoListComponent user={user} newTaskList={newTaskList} setNewTaskList={setNewTasksList} />
+                    <ToDoListComponent user={user} newTaskList={newTaskList} setNewTaskList={setNewTaskList} />
                 </div>
             </div>
             <div className="bottom-bar">

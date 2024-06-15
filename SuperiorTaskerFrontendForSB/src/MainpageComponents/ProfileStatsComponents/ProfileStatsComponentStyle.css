@@ -1,5 +1,6 @@
 /* Default styles for larger screens */
 .Profile-component { 
+  font-family: Arial, Helvetica, sans-serif;
     height: 95%;
     background-color: #333; 
     padding: 20px;
@@ -11,6 +12,7 @@
   }
   
   .profile-component-big-logo {
+    font-family: Arial, Helvetica, sans-serif;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -18,20 +20,30 @@
   }
   
   .profile-component-big-name-surname {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5em;
     color: #fff;
   }
   
   .profile-component-profile-description {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
-    color: #ccc;
+    color: #fff;
   }
   
   .profile-component-description-text {
+    background-color: #333;
+    border-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    resize: none;
+    height: 150px;
+    width: 300px;
     color: #fff;
   }
   
   .profile-component-edit-button {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #3498db;
     color: #fff;
     border: none;

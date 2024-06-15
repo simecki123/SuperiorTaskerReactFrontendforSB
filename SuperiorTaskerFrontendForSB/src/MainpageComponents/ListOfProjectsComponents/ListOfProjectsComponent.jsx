@@ -57,9 +57,14 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
         setProjectList(sortedList);
     };
+    
+    const parseDate = (dateString) => {
+        const [day, month, year] = dateString.split('.');
+        return new Date(`${year}-${month}-${day}`);
+    };
 
     const sortByDate = () => {
-        const sortedList = [...projectList].sort((a, b) => new Date(a.date) - new Date(b.date));
+        const sortedList = [...projectList].sort((a, b) => parseDate(a.date) - parseDate(b.date));
         setProjectList(sortedList);
     };
 
@@ -122,6 +127,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
                                 <span className="project-part-text">{project.title}</span>
                                 <span className='project-part-completion'>{project.completion}</span>
                             </Link>
+                            <span className='project-part-date'>{project.date}</span>
                             <div>
                                 <button className="project-part-delete-button" onClick={() => handleDeleteProject(project.id)}>Delete</button>
                                 <button className="project-part-move-button" onClick={() => moveProjectUp(project.id)}>☝</button>

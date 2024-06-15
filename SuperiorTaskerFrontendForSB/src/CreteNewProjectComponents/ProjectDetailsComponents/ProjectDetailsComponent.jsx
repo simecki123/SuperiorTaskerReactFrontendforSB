@@ -34,13 +34,13 @@ function ProjectDetailsComponent({ user, setNewProject }) {
     return (
         <div className="desc-screen">
             <h2 className="project-title">Project Title</h2>
-            <input onChange={handleChange} className="project-name-input" name="title" placeholder="Enter project name..." />
+            <input onChange={handleChange} maxLength={20} className="project-name-input" name="title" placeholder="Enter project name..." />
 
             <h2 className="project-description">Description</h2>
-            <textarea onChange={handleChange} className="project-description-name-input" name="description" placeholder="Enter project description..."></textarea>
+            <textarea onChange={handleChange} maxLength={100} className="project-description-name-input" name="description" placeholder="Enter project description..."></textarea>
 
             <h2 className='project-date'>Date</h2>
-            <input onChange={handleChange} className='project-date-input' name="date" placeholder='Enter final date here' />
+            <input type='date' onChange={handleChange}  className='project-date-input' name="date" placeholder='Enter final date here' />
         </div>
     );
 }

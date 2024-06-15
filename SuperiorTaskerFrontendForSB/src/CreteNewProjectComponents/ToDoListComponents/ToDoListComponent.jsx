@@ -6,6 +6,9 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
     const [newTaskTitle, setNewTaskTitle] = useState('');
 
     const handleAddTask = () => {
+        if (!newTaskTitle.trim()) {
+            return; // Do not add the task if the title is empty or only contains whitespace
+        }
         const newTask = {
             id: newTaskList.length + 1, // This is just a temporary ID, you might want to use UUID or similar
             name: newTaskTitle,
