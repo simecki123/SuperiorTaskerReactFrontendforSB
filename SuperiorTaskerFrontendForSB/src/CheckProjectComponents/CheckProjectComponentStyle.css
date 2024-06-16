@@ -1,0 +1,37 @@
+
+.project-details-list-of-tasks {
+    width: 100%;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-bar {
+    flex: none;
+     /* Ensure tool bar doesn't grow or shrink */
+}
+
+.main-part {
+    display: flex;
+    flex: 1; /* Grow main part to take remaining space */
+    margin-bottom: 10px;
+}
+
+.project-desc {
+    width: 25%; /* Set width to 25% of the screen */
+    height: 100%;
+    margin-right: 10px; /* Take full height */
+}
+
+.add-new-task {
+    flex: 1; /* Take remaining space */
+    padding-left: 20px; /* Add spacing between project description and add new task */
+}
+
+.completion-bar {
+    flex: none; /* Ensure completion bar doesn't grow or shrink */
+}
+
+
