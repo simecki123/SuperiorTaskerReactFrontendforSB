@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import MainPageComponent from './MainpageComponents/MainPageComponent';
 import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
 import CreateNewProjectComponent from './CreteNewProjectComponents/CreateNewProjectComponent';
+import CheckProjectComponent from './CheckProjectComponents/CheckProjectComponent';
 
 
 function App() {
@@ -50,6 +51,12 @@ const ProtectedRoute = ({ children }) => {
             <Route path='/createnewproject' element={
               <ProtectedRoute>
                 <CreateNewProjectComponent />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/projectdetails/:projectId' element={
+              <ProtectedRoute>
+                <CheckProjectComponent />
               </ProtectedRoute>
             } />
         </Routes>

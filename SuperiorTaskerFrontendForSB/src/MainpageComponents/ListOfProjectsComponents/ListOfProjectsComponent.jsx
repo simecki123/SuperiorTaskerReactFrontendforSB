@@ -14,7 +14,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         setLoading(true);
         // Fetch all tasks related to the project
         const response = await findAllTasksOfTheProject(projectId);
-        const tasks = response.data;
+        const tasks = response.data.taskList;
 
         // Delete all tasks related to the project
         await Promise.all(tasks.map(task => deleteTask(task.id)));
@@ -84,7 +84,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
 
     return(
         <>
-            <div className='project-part-container'>
+        <div className='project-part-container'>
                 <div className="project-part-topnav">
                     <div className="project-part-search-container">
                         <form className="project-part-search-form" onSubmit={handleSearch}>
@@ -120,10 +120,10 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
                 <hr className='project-part-break' />
 
                 <div>
-                    <ol className='project-part-unordered-list'>
+                <ol className='project-part-unordered-list'>
                         {projectList.map(project => (
                         <li className='project-part-list' key={project.id}>
-                            <Link className='editProject' to="/projectdetails">
+                            <Link className='editProject' to={`/projectdetails/${project.id}`}>
                                 <span className="project-part-text">{project.title}</span>
                                 <span className='project-part-completion'>{project.completion}</span>
                             </Link>
@@ -138,7 +138,6 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
                     </ol>
                 </div>
             </div>
-            
         </>
     );
 }

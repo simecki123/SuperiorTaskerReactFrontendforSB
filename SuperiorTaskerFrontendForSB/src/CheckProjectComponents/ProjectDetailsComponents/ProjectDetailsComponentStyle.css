@@ -1,0 +1,44 @@
+
+
+
+.project-details-desc{
+    height: 90%;
+    background-color: #333;
+    
+}
+
+.project-name{
+    color: #fff;
+}
+
+.project-desc-title{
+    color: #fff;
+}
+
+.project-date {
+    color: #fff;
+}
+
+.description {
+    background-color: #333;
+    border-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    resize: none;
+    height: 150px;
+    width: 300px;
+    color: #fff;
+}
+
+.edit-project-btn{
+    background-color: #4171e9;
+    border-radius: 10px;
+    color: #fff;
+    height: 60px;
+    width: 150px;
+}
+
+.edit-project-btn:hover{
+    background-color: #0b3ab1;
+    
+}

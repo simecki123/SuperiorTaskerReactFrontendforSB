@@ -52,7 +52,7 @@ api.interceptors.response.use(
 
 
 // --------------------User reqquests----------------------
-export const login = (loginData) => api.post('/api/login', loginData);
+export const login = (loginData) => api.post('/api/login', loginData); 
 export const register = (userData) => api.post('/api/register', userData);
 export const deleteUser = (id) => api.delete(`/user/delete/${id}`);
 export const getUserById = (id) => api.get(`/user/findById/${id}`);
