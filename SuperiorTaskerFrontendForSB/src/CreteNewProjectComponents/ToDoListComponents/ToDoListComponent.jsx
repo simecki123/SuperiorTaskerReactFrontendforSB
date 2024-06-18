@@ -67,9 +67,11 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
                     {newTaskList.map(task => (
                         <li className='todo-list-create-project-list' key={task.id}>
                             <span className='text-create-new-project-task-title'>{task.name}</span>
-                            <button className='text-create-new-project-task-delete-button' onClick={() => handleDeleteTask(task.id)}>Delete</button>
-                            <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskUp(task.id)}>☝</button>
-                            <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskDown(task.id)}>👇</button>
+                            <div className='button-for-tasks-container'>
+                                <button className='text-create-new-project-task-delete-button' onClick={() => handleDeleteTask(task.id)}>Delete</button>
+                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskUp(task.id)}>☝</button>
+                                <button className='text-create-new-project-task-move-button' onClick={() => handleMoveTaskDown(task.id)}>👇</button>
+                            </div>
                         </li>
                     ))}
                 </ol>

@@ -1,109 +1,94 @@
+/* ToDoListComponentsStyle.css */
 .toDoList-create-new-project {
-  height: 500px;
-  overflow-y: auto;
-  background-color: #333; /* Dark background color */
-  color: #fff; /* Text color */
+  background-color: #333;
+  color: #fff;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .todo-list-createproject-title {
   color: #fff;
-  font-size: 2em;
-  margin-bottom: 20px;
 }
 
-.todo-list-create-project-enter-task-input { 
-  width: 70%; /* Adjust as needed */
-  padding: 10px;
-  margin-right: 10px;
+.todo-list-create-project-enter-task-input {
+  background-color: #444;
+  color: #fff;
   border: none;
-  border-radius: 5px;
-  background-color: #444; /* Darker input background color */
-  color: #fff; /* Text color */
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
 }
 
 .add-button-create-new-project {
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
   width: 100px;
-  height: 40px; /* Adjusted height for smaller screens */
-  background-color: #2196f3; 
-  color: #fff; /* Text color */
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #2196f3;
+  margin-right: 10px;
 }
 
 .add-button-create-new-project:hover {
-  background-color: #0b6ab7; /* Darker green color on hover */
+  background-color: #0b6ab7;
 }
 
 .todo-list-create-project-unordered-list {
+  border-radius: 5px;
   list-style-type: none;
   padding: 0;
 }
 
 .todo-list-create-project-list {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  background-color: #444; /* Darker list item background color */
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #444;
   padding: 10px;
   border-radius: 5px;
 }
 
 .text-create-new-project-task-title {
-  width: 70%; /* Adjust as needed */
-}
-
-.text-create-new-project-task-buttons {
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
+  color: #fff;
+  margin-left: 10px;
 }
 
 .text-create-new-project-task-delete-button,
 .text-create-new-project-task-move-button {
-  width: 70px;
-  height: 40px; /* Adjusted height for smaller screens */
-  background-color: #2196f3; /* Red button color */
-  color: #fff; /* Text color */
-  border: none;
-  padding: 5px;
-  border-radius: 5px; 
-  cursor: pointer;
-  margin-bottom: 5px; /* Space between buttons */
+  color: #fff;
+  border-radius: 10px;
+  height: 50px;
+  width: 100px;
+  background-color: #2196f3;
+  margin-right: 10px;
 }
 
 .text-create-new-project-task-delete-button:hover,
 .text-create-new-project-task-move-button:hover {
-  background-color: #0b6ab7; /* Darker red color on hover */
+  background-color: #0b6ab7;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .todo-list-create-project-enter-task-input {
-      width: 60%; /* Adjust as needed */
-  }
-
-  .add-button-create-new-project {
-      width: 25%; /* Smaller width */
-      height: 40px; /* Adjusted height for smaller screens */
-  }
-
+/* Responsive Styles */
+@media (max-width: 768px) {
   .todo-list-create-project-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .text-create-new-project-task-title {
+      margin-bottom: 10px;
+  }
+  .button-for-tasks-container {
+      width: 100%;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
   }
-
-  .text-create-new-project-task-buttons {
-      width: 50%; /* Full width */
-      margin-top: 5px; /* Margin for better spacing */
-  }
-
   .text-create-new-project-task-delete-button,
   .text-create-new-project-task-move-button {
-      width: 100%;
-      margin-bottom: 5px;
+      margin-top: 5px;
   }
+  .add-button-create-new-project {
+    height: 50px;
+    width: 65px;
+  }
+
 }

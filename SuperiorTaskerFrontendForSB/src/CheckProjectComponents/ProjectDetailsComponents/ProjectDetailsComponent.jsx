@@ -10,13 +10,13 @@ function ProjectDetailsComponent({ project }) {
             <div className="project-details-desc">
                 <h2 className="project-name">{project.title}</h2>
 
-                <h3 className="project-desc-title">Description</h3>
+                <h3 className="project-desc-title">DESCRIPTION:</h3>
 
                 <textarea readOnly className='description' value={project.description} />
 
                 <p className='project-date'>{project.date}</p>
 
-                <Link to={"/newproject"}>
+                <Link to={`/editProject/${project.id}`}>
                     <button className="edit-project-btn">Edit project</button>
                 </Link>
             </div>

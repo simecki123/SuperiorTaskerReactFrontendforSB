@@ -1,19 +1,17 @@
-
-.completion-bar{
-    background-color: #333;
-    color: #fff;
+.completion-bar {
+  background-color: #333;
+  color: #fff;
 }
 
-.completion-bar-title{
-    color: #fff;
+.completion-bar-title {
+  color: #fff;
 }
 
-.myBar{
+.myBar {
   width: 10%;
   height: 30px;
   background-color: #3290ef;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
+  text-align: center;
+  line-height: 30px;
   color: white;
 }
-

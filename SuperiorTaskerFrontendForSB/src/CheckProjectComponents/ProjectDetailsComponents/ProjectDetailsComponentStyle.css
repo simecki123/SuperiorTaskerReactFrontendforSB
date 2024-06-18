@@ -1,25 +1,25 @@
-
-
-
-.project-details-desc{
+.project-details-desc {
     height: 90%;
     background-color: #333;
-    
 }
 
-.project-name{
+.project-name {
     color: #fff;
+    margin-left: 20px;
 }
 
-.project-desc-title{
+.project-desc-title {
     color: #fff;
+    margin-left: 20px;
 }
 
 .project-date {
     color: #fff;
+    margin-left: 20px;
 }
 
 .description {
+    margin-left: 20px;
     background-color: #333;
     border-color: #333;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,15 +30,15 @@
     color: #fff;
 }
 
-.edit-project-btn{
-    background-color: #4171e9;
+.edit-project-btn {
+    margin-left: 20px;
+    background-color: #2196f3;
     border-radius: 10px;
     color: #fff;
     height: 60px;
     width: 150px;
 }
 
-.edit-project-btn:hover{
-    background-color: #0b3ab1;
-    
+.edit-project-btn:hover {
+    background-color: #0b6ab7;
 }
