@@ -5,7 +5,7 @@ import ListOfTasksComponent from './ListOfTasksComponents/ListOfTasksComponent';
 import CompletionComponent from './CompletionComponents/CompletionComponent';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getProjectById, findAllTasksOfTheProject, findAllTasksOfUser, deleteTask, updateTask } from '../services/api';
+import { getProjectById, findAllTasksOfTheProject, deleteTask, updateTask, updateProject } from '../services/api';
 
 function CheckProjectComponent() {
     const [user, setUser] = useState(null);
@@ -17,18 +17,17 @@ function CheckProjectComponent() {
 
     useEffect(() => {
         fetchUserAndTasks();
-        
     }, []);
 
     useEffect(() => {
-        if (user, project) {
+        if (user && project) {
             console.log("user:", user);
             console.log("project", project);
             console.log("tasks: ", taskList);
         }
     }, [user, project, taskList]);
 
-   const fetchUserAndTasks = async () => {
+    const fetchUserAndTasks = async () => {
         setLoading(true);
         try {
             const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -40,8 +39,8 @@ function CheckProjectComponent() {
             }
 
             setUser(storedUser);
-            console.log("projectId: "+ projectId);
-            if(projectId) {
+            console.log("projectId: " + projectId);
+            if (projectId) {
                 const dataProject = await getProjectById(projectId);
                 setProject(dataProject.data);
 
@@ -51,8 +50,10 @@ function CheckProjectComponent() {
 
                 setTaskList(tasks);
 
+                // Calculate initial completion percentage
+                calculateAndUpdateCompletionPercentage(tasks, dataProject.data);
             }
-            
+
         } catch (error) {
             console.error('Failed to fetch user:', error);
             navigate('/');
@@ -60,7 +61,18 @@ function CheckProjectComponent() {
         setLoading(false);
     };
 
-    
+    const calculateAndUpdateCompletionPercentage = async (tasks, projectToUpdate) => {
+        const completedTasks = tasks.filter(task => task.done).length;
+        const completionPercentage = ((completedTasks / tasks.length) * 100).toFixed(2);
+        projectToUpdate.completion = `${completionPercentage}%`;
+
+        try {
+            await updateProject(projectId, projectToUpdate);
+            setProject({ ...projectToUpdate });
+        } catch (error) {
+            console.error('Failed to update project completion percentage:', error);
+        }
+    };
 
     const moveTaskUp = (taskId) => {
         const index = taskList.findIndex(task => task.id === taskId);
@@ -88,7 +100,9 @@ function CheckProjectComponent() {
         setLoading(true);
         try {
             await deleteTask(taskId);
-            setTaskList(taskList.filter(task => task.id !== taskId));
+            const newTaskList = taskList.filter(task => task.id !== taskId);
+            setTaskList(newTaskList);
+            calculateAndUpdateCompletionPercentage(newTaskList, project);
         } catch (error) {
             console.error('Failed to delete task:', error);
         } finally {
@@ -105,11 +119,11 @@ function CheckProjectComponent() {
 
         try {
             await updateTask(taskId, updatedTask);
-            setTaskList(prevList =>
-                prevList.map(task =>
-                    task.id === taskId ? updatedTask : task
-                )
+            const newTaskList = taskList.map(task =>
+                task.id === taskId ? updatedTask : task
             );
+            setTaskList(newTaskList);
+            calculateAndUpdateCompletionPercentage(newTaskList, project);
         } catch (error) {
             console.error('Failed to update task:', error);
         } finally {
@@ -119,24 +133,24 @@ function CheckProjectComponent() {
 
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
-    return(
+    return (
         <>
             <div className="project-details-list-of-tasks">
                 <div className="tool-bar">
                     <ToolBarComponent user={user} />
                 </div>
-                
+
                 <div className='main-part'>
                     <div className='project-desc'>
                         <ProjectDetailsComponent project={project} />
                     </div>
                     <div className='add-new-task'>
-                        <ListOfTasksComponent 
-                            taskList={taskList} 
-                            moveTaskUp={moveTaskUp} 
-                            moveTaskDown={moveTaskDown} 
-                            deleteTaskFunctionality={deleteTaskFunctionality} 
-                            toggleTaskDone={toggleTaskDone} 
+                        <ListOfTasksComponent
+                            taskList={taskList}
+                            moveTaskUp={moveTaskUp}
+                            moveTaskDown={moveTaskDown}
+                            deleteTaskFunctionality={deleteTaskFunctionality}
+                            toggleTaskDone={toggleTaskDone}
                         />
                     </div>
                 </div>

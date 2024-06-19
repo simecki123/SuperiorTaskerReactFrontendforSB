@@ -1,0 +1,40 @@
+.editProject-main-page {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .editProject-toolbar {
+    width: 100%;
+  }
+  
+  .project-details-and-tasks-list-details {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+  
+  .project-to-edit-details {
+    width: 30%;
+  }
+  
+  .tasks-to-edit-details {
+    width: 70%;
+  }
+  
+  .update-project-and-its-tasks {
+    width: 100%;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .project-details-and-tasks-list-details {
+        flex-direction: column;
+    }
+    .project-to-edit-details, .tasks-to-edit-details {
+        width: 100%;
+    }
+  }
+  

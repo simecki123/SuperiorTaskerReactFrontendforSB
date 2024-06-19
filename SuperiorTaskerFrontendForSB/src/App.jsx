@@ -10,6 +10,7 @@ import MainPageComponent from './MainpageComponents/MainPageComponent';
 import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
 import CreateNewProjectComponent from './CreteNewProjectComponents/CreateNewProjectComponent';
 import CheckProjectComponent from './CheckProjectComponents/CheckProjectComponent';
+import EditProjectComponent from './EditProjectComponents/EditProjectComponent';
 
 
 function App() {
@@ -57,6 +58,12 @@ const ProtectedRoute = ({ children }) => {
             <Route path='/projectdetails/:projectId' element={
               <ProtectedRoute>
                 <CheckProjectComponent />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/editProject/:projectId' element={
+              <ProtectedRoute>
+                <EditProjectComponent />
               </ProtectedRoute>
             } />
         </Routes>

@@ -64,7 +64,7 @@ export const saveProject = (projectData) => api.post('/projects/saveProject', pr
 export const deleteProject = (id) => api.delete(`/projects/deleteProject/${id}`);
 export const getProjectById = (id) => api.get(`/projects/getProjectById/${id}`);
 export const findAllProjects = (userId) => api.get(`/projects/findAllProjects/${userId}`);
-export const updateProject = (id, updateProject) => api.put(`/projects/users/updateProject/${id}`, updateProject);
+export const updateProject = (id, updateProject) => api.put(`/projects/updateProject/${id}`, updateProject);
 
 // ---------------------Task requests----------------------
 export const saveTask = (taskData) => api.post('/tasks/saveTask', taskData);
