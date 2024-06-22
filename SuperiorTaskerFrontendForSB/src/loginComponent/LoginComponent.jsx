@@ -13,22 +13,19 @@ function LoginScreen() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            
-            const res = await login({email, password});
-            localStorage.setItem('token', JSON.stringify(res.data.token));
+            const res = await login({ email, password });
+            localStorage.setItem('token', res.data.token); // Store as plain string
             localStorage.setItem('user', JSON.stringify(res.data.user));
             console.log(res.data.token);
             console.log(res.data.user);
-            if(res.data.token !== null || res.data.user !== null) {
+            if (res.data.token && res.data.user) {
                 navigate('/mainpage');
             }
-            
-            
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed');
         }
     };
-
+    
     return (
         <div className='login-container'>
             <div className="header-container">
