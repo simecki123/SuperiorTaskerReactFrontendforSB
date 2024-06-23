@@ -12,12 +12,31 @@ function RegisterScreen() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Validate email format
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  // Handle submit for registration
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!firstName || !lastName || !email || !password || !confirmPassword) {
+      setError('All fields are required');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError('Invalid email format');
+      return;
+    }
+
     if (password !== confirmPassword) {
       setError("Passwords don't match");
       return;
     }
+
     try {
       const res = await register({firstName: firstName, lastName: lastName, email: email, password: password, description: '', image: '' });
       console.log(res);

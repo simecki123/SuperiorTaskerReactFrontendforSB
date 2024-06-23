@@ -28,6 +28,7 @@ function EditProjectComponent() {
         }
     }, [user, project, taskList]);
 
+    // Fetch user from local storage and tasks of project that is selected to be edited
     const fetchUserAndTasks = async () => {
         setLoading(true);
         try {
@@ -59,6 +60,7 @@ function EditProjectComponent() {
         setLoading(false);
     };
 
+    // Detect change that user typed for value of certain fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProject((prevProject) => ({
@@ -67,6 +69,7 @@ function EditProjectComponent() {
         }));
     };
 
+    // Move task up
     const moveTaskUp = (taskId) => {
         const index = taskList.findIndex(task => task.id === taskId);
         if (index > 0) {
@@ -78,6 +81,7 @@ function EditProjectComponent() {
         }
     };
 
+    // Add new task
     const addTask = () => {
         if (!newTaskTitle.trim()) {
             return; // Do not add the task if the title is empty or only contains whitespace
@@ -93,6 +97,7 @@ function EditProjectComponent() {
         setNewTaskTitle('');
     };
 
+    // Move task down
     const moveTaskDown = (taskId) => {
         const index = taskList.findIndex(task => task.id === taskId);
         if (index < taskList.length - 1) {
@@ -104,10 +109,12 @@ function EditProjectComponent() {
         }
     };
 
+    // Fully delete task
     const deleteTask = (taskId) => {
         setTaskList(taskList.filter(task => task.id !== taskId)); // Only remove from the local state
     };
 
+    // Update entire project
     const updateProjectAndItsTasks = async () => {
         setLoading(true);
 
@@ -147,6 +154,7 @@ function EditProjectComponent() {
         }
     };
 
+    // Loading...
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return (

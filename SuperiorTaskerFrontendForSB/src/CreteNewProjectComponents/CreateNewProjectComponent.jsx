@@ -25,6 +25,7 @@ function CreateNewProjectComponent() {
         fetchUser();
     }, []);
 
+    // Get user from local storage
     const fetchUser = async () => {
         try {
             const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -47,7 +48,7 @@ function CreateNewProjectComponent() {
     };
 
     
-
+    // Save new project
     const handleSave = async () => {
         if (!newProject.title.trim() || !newProject.description.trim() || !newProject.date.trim() ) {
             alert("All project fields must be filled.");
@@ -73,6 +74,7 @@ function CreateNewProjectComponent() {
                 projectId
             }));
 
+            // Save all new tasks you created with new project
             await Promise.all(tasksWithProjectId.map(task => saveTask(task)));
 
             navigate('/mainpage');

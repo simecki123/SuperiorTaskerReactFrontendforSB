@@ -18,6 +18,7 @@ function ProjectDetailsComponent({ user, setNewProject }) {
         }));
     }, [user]);
 
+    // Detect change user made in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProject(prevProject => ({

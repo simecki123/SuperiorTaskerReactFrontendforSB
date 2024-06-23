@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function ProjectDetailsComponent({ project }) {
+
+    // Loading...
     if (!project) return <div>Loading...</div>;
 
     return (

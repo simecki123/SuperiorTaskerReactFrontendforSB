@@ -8,6 +8,7 @@ function ToolBarComponent({user}) {
 
     const navigate = useNavigate();
 
+    // User can logout
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');

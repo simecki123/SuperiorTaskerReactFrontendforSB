@@ -17,6 +17,8 @@ function MainPageComponent() {
         fetchUserAndProjects();
     }, []);
 
+    // Get user and his projects.
+    // User is saved on login in local storage and we get all projects that belong to him using his id
     const fetchUserAndProjects = async () => {
         try {
             const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -56,6 +58,8 @@ function MainPageComponent() {
     }, []);
 
     console.log(projectList);
+
+    // Loading screen...
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return (

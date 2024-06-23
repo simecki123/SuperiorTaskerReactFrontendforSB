@@ -10,6 +10,7 @@ function LoginScreen() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    // Try to login
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {

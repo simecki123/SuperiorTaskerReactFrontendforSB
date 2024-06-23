@@ -8,6 +8,7 @@ const api = axios.create({
   },
 });
 
+// On request from frontend we set token to header
 api.interceptors.request.use(
   (config) => {
     console.log('Request interceptor called');
@@ -23,6 +24,7 @@ api.interceptors.request.use(
   }
 );
 
+// Interceptor for responses from backend
 api.interceptors.response.use(
   (response) => {
     console.log('Response interceptor called:', response);

@@ -5,6 +5,7 @@ import { updateUser } from '../services/api';
 
 function EditProfileComponent() {
     const [loading, setLoading] = useState(false);
+    // Deffault user
     const [user, setUser] = useState({
         id: '',
         firstName: '',
@@ -34,6 +35,7 @@ function EditProfileComponent() {
         }
     }, [navigate]);
 
+    // Detect change that user changed some value in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser((prevUser) => ({
@@ -42,6 +44,7 @@ function EditProfileComponent() {
         }));
     };
 
+    // Update User
     const handleSave = async () => {
         try {
             setLoading(true);
@@ -57,6 +60,7 @@ function EditProfileComponent() {
         }
     };
 
+    // Loading ...
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return (

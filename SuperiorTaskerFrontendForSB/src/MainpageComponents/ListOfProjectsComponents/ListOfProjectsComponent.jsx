@@ -9,6 +9,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(false);
 
+    // Delete project and with him all his tasks.
     const handleDeleteProject = async (projectId) => {
         try {
         setLoading(true);
@@ -31,6 +32,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         }
     };
 
+    // Manipulating list move selected project up
     const moveProjectUp = (projectId) => {
         const index = projectList.findIndex(project => project.id === projectId);
         if (index > 0) {
@@ -42,6 +44,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         }
     };
 
+    // Manipulating list move selected project down
     const moveProjectDown = (projectId) => {
         const index = projectList.findIndex(project => project.id === projectId);
         if (index < projectList.length - 1) {
@@ -53,26 +56,31 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         }
     };
 
+    // Sort list of projects by alphabet using title name
     const sortAlphabetically = () => {
         const sortedList = [...projectList].sort((a, b) => a.title.localeCompare(b.title));
         setProjectList(sortedList);
     };
     
+    // Helpful function for sort by date function so we can easily sort by date
     const parseDate = (dateString) => {
         const [day, month, year] = dateString.split('.');
         return new Date(`${year}-${month}-${day}`);
     };
 
+    // Sort by date
     const sortByDate = () => {
         const sortedList = [...projectList].sort((a, b) => parseDate(a.date) - parseDate(b.date));
         setProjectList(sortedList);
     };
 
+    // Sort by completion. Each task has percentage of how fully its done
     const sortByCompletion = () => {
         const sortedList = [...projectList].sort((a, b) => parseFloat(b.completion) - parseFloat(a.completion));
         setProjectList(sortedList);
     };
 
+    // Search using searchbar specific project
     const handleSearch = (e) => {
         e.preventDefault();
         const searchTermLowerCase = searchTerm.toLowerCase();
@@ -80,6 +88,7 @@ function ListOfProjectsComponent({user, projectList, setProjectList}) {
         setProjectList(updatedList.concat(projectList.filter(project => !project.title.toLowerCase().includes(searchTermLowerCase))));
     };
 
+    // Loading screen...
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return(

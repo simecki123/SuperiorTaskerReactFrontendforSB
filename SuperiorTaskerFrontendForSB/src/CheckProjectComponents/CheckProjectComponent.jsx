@@ -27,6 +27,7 @@ function CheckProjectComponent() {
         }
     }, [user, project, taskList]);
 
+    // Get user and all tasks of selected project
     const fetchUserAndTasks = async () => {
         setLoading(true);
         try {
@@ -61,6 +62,7 @@ function CheckProjectComponent() {
         setLoading(false);
     };
 
+    // Calculate completion. Check total tasks that are done devided by total tasks *100
     const calculateAndUpdateCompletionPercentage = async (tasks, projectToUpdate) => {
         const completedTasks = tasks.filter(task => task.done).length;
         const completionPercentage = ((completedTasks / tasks.length) * 100).toFixed(2);
@@ -74,6 +76,7 @@ function CheckProjectComponent() {
         }
     };
 
+    // Move task up
     const moveTaskUp = (taskId) => {
         const index = taskList.findIndex(task => task.id === taskId);
         if (index > 0) {
@@ -85,6 +88,7 @@ function CheckProjectComponent() {
         }
     };
 
+    // Move task down
     const moveTaskDown = (taskId) => {
         const index = taskList.findIndex(task => task.id === taskId);
         if (index < taskList.length - 1) {
@@ -96,6 +100,7 @@ function CheckProjectComponent() {
         }
     };
 
+    // Delete task
     const deleteTaskFunctionality = async (taskId) => {
         setLoading(true);
         try {
@@ -110,6 +115,7 @@ function CheckProjectComponent() {
         }
     };
 
+    // Set task as done and update that task
     const toggleTaskDone = async (taskId) => {
         setLoading(true);
         const taskToUpdate = taskList.find(task => task.id === taskId);
@@ -131,6 +137,7 @@ function CheckProjectComponent() {
         }
     };
 
+    // Loading...
     if (loading) return <div className='loading-screen'><div className='loader'></div>Loading...</div>;
 
     return (

@@ -20,10 +20,12 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
         setNewTaskTitle('');
     };
 
+    // Delete task
     const handleDeleteTask = (taskId) => {
         setNewTaskList(newTaskList.filter(task => task.id !== taskId));
     };
 
+    // Move task up
     const handleMoveTaskUp = (taskId) => {
         const index = newTaskList.findIndex(project => project.id === taskId);
         if (index > 0) {
@@ -35,6 +37,7 @@ function ToDoListComponent({ user, newTaskList, setNewTaskList }) {
         }
     };
 
+    // Move task down
     const handleMoveTaskDown = (taskId) => {
         const index = newTaskList.findIndex(project => project.id === taskId);
         if (index < newTaskList.length - 1) {

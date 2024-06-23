@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import './App.css'
 import LoginScreen from './loginComponent/LoginComponent';
 import RegisterScreen from './registerComponent/RegisterComponent';
-import TryMeComponent from './TryMePage/TryMeComponent';
 import PropTypes from 'prop-types';
 import MainPageComponent from './MainpageComponents/MainPageComponent';
 import EditProfileComponent from './EditProfileComponents/EditProfileComponent';
@@ -15,7 +14,7 @@ import EditProjectComponent from './EditProjectComponents/EditProjectComponent';
 
 function App() {
   
-
+// Protected route so no one can get to them without token
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
 
