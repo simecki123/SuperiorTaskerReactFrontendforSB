@@ -1,16 +1,25 @@
+/* Ensure html and body occupy full viewport and have no padding/margin */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents the extra scrollbar */
+}
+
 /* Common styles for both large and small screens */
 .main-page {
   background-color: #333;
   display: flex;
   flex-direction: column;
-  height: 100vh; 
-  overflow-x: auto; 
+  height: 100%; /* Change to 100% */
+  overflow: hidden; /* Prevents the extra scrollbar */
 }
 
 .main-part {
   display: flex;
   flex: 1; 
   flex-direction: row;
+  overflow-y: auto; /* Enables scrolling if content overflows */
 }
 
 .profile-part {
@@ -22,7 +31,7 @@
   width: 75%;
   position: relative;
   right: 0;
-  height: 100%;
+  overflow-y: auto; /* Ensures the inner list scrolls */
 }
 
 /* Loading Screen */

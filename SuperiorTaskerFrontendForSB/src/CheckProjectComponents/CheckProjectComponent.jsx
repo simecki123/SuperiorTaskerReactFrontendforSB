@@ -66,8 +66,14 @@ function CheckProjectComponent() {
     const calculateAndUpdateCompletionPercentage = async (tasks, projectToUpdate) => {
         const completedTasks = tasks.filter(task => task.done).length;
         const completionPercentage = ((completedTasks / tasks.length) * 100).toFixed(2);
-        projectToUpdate.completion = `${completionPercentage}%`;
 
+        if (tasks.length === 0) {
+            console.log('task list is empty')
+            projectToUpdate.completion = '0.00%';
+        } else {
+            console.log('task list is not empty')
+            projectToUpdate.completion = `${completionPercentage}%`;
+        }
         try {
             await updateProject(projectId, projectToUpdate);
             setProject({ ...projectToUpdate });

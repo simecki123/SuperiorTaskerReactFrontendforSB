@@ -1,0 +1,90 @@
+.toDoList-create-new-project {
+    height: 480px; /* Fixed height to enable scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-list-createproject-title {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .todo-list-create-project-enter-task-input {
+    width: calc(60% - 120px); /* Adjusted to fit the add button */
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 10px;
+  }
+  
+  .add-button-create-new-project {
+    height: 40px;
+    width: 100px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-button-create-new-project:hover {
+    background-color: #0b6ab7;
+  }
+  
+  .todo-list-create-project-unordered-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Remove default margin */
+  }
+  
+  .todo-list-create-project-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .text-create-new-project-task-title {
+    width: 70%;
+  }
+  
+  .button-for-tasks-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .text-create-new-project-task-delete-button,
+  .text-create-new-project-task-move-button {
+    color: #fff;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+    background-color: #2196f3;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .text-create-new-project-task-delete-button:hover,
+  .text-create-new-project-task-move-button:hover {
+    background-color: #0b6ab7;
+  }
+  
+  @media (max-width: 768px) {
+    .button-for-tasks-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .text-create-new-project-task-delete-button,
+    .text-create-new-project-task-move-button {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  

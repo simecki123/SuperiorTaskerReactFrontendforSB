@@ -112,6 +112,9 @@ function EditProjectComponent() {
     // Fully delete task
     const deleteTask = (taskId) => {
         setTaskList(taskList.filter(task => task.id !== taskId)); // Only remove from the local state
+        if(taskList.length === 0) {
+            project.completion = '0.00%';
+        }
     };
 
     // Update entire project
@@ -136,6 +139,9 @@ function EditProjectComponent() {
 
             const completionPercentage = ((completedTasks / taskList.length) * 100).toFixed(2);
             project.completion = `${completionPercentage}%`;
+            if(taskList.length === 0) {
+                project.completion = '0.00%';
+            }
 
             // Add tasks to the database
             for (const task of taskList) {

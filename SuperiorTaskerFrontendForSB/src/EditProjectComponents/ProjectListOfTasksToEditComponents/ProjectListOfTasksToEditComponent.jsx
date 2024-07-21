@@ -1,9 +1,10 @@
 import './ProjectListOfTasksToEditStyle.css';
+import PropTypes from 'prop-types';
 
 function ProjectListOfTasksToEditComponent({ taskList, addTask, moveTaskUp, newTaskTitle, setNewTaskTitle, moveTaskDown, deleteTask }) {
     return (
         <div className='toDoList-create-new-project'>
-            <h1 className='todo-list-createproject-title'>To-Do_List</h1>
+            <h1 className='todo-list-createproject-title'>To-Do List</h1>
 
             <div>
                 <input
@@ -32,5 +33,15 @@ function ProjectListOfTasksToEditComponent({ taskList, addTask, moveTaskUp, newT
         </div>
     );
 }
+
+ProjectListOfTasksToEditComponent.propTypes = {
+    taskList: PropTypes.array.isRequired,
+    addTask: PropTypes.func.isRequired,
+    moveTaskUp: PropTypes.func.isRequired,
+    newTaskTitle: PropTypes.string.isRequired,
+    setNewTaskTitle: PropTypes.func.isRequired,
+    moveTaskDown: PropTypes.func.isRequired,
+    deleteTask: PropTypes.func.isRequired,
+};
 
 export default ProjectListOfTasksToEditComponent;
