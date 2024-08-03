@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './registerDark.css';
 import { useState } from 'react';
 import { register } from '../services/api';

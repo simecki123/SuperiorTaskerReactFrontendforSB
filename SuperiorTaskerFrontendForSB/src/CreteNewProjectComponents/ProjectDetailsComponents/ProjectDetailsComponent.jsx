@@ -1,30 +1,15 @@
-import { useEffect, useState } from 'react';
 import './ProjectDetailsComponentStyle.css';
 import PropTypes from 'prop-types';
 
 function ProjectDetailsComponent({ user, setNewProject }) {
-    const [project, setProject] = useState({
-        userId: user.id,
-        title: '',
-        description: '',
-        date: '',
-        completion: '0%'
-    });
+    
 
-    useEffect(() => {
-        setProject(prevProject => ({
-            ...prevProject,
-            userId: user.id
-        }));
-    }, [user]);
+    
 
     // Detect change user made in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProject(prevProject => ({
-            ...prevProject,
-            [name]: value
-        }));
+        
         setNewProject(prevProject => ({
             ...prevProject,
             [name]: value,

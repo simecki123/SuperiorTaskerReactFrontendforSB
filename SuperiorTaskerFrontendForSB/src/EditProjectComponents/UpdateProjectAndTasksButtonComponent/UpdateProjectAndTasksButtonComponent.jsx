@@ -1,4 +1,5 @@
 import './UpdateProjectAndTasksButtonStyle.css';
+import PropTypes from 'prop-types';
 
 function UpdateProjectAndTasksButtonComponent({ updateProjectAndItsTasks }) {
     return (
@@ -10,5 +11,9 @@ function UpdateProjectAndTasksButtonComponent({ updateProjectAndItsTasks }) {
         </div>
     );
 }
+
+UpdateProjectAndTasksButtonComponent.propTypes = {
+    updateProjectAndItsTasks: PropTypes.func.isRequired
+};
 
 export default UpdateProjectAndTasksButtonComponent;
