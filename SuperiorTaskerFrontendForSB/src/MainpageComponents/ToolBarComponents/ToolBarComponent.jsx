@@ -3,9 +3,7 @@ import logo from '../../assets/SuperiorTasker.png';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
-function ToolBarComponent({user}) {
-
+function ToolBarComponent({ user }) {
     const navigate = useNavigate();
 
     // User can logout
@@ -19,7 +17,7 @@ function ToolBarComponent({user}) {
         return null;
     }
 
-    return(
+    return (
         <>
             <div className='toolbar'>
                 <div className="tool-bar-left-section">
@@ -31,43 +29,48 @@ function ToolBarComponent({user}) {
                                 <div className="hamburger-bar"></div>
                             </div>
                         </button>
-                    <div className='tool-bar-dropdown-content'>
-                    <span className='tool-bar-span' onClick={handleLogout}>
-                        Log out
-                    </span>
-                    <Link to="/mainpage">
-                        <span className='tool-bar-span'>Home</span>
-                    </Link>
+                        <div className='tool-bar-dropdown-content'>
+                            <span className='tool-bar-span' onClick={handleLogout}>
+                                Log out
+                            </span>
+                            <Link to="/mainpage">
+                                <span className='tool-bar-span'>Home</span>
+                            </Link>
+                            {user.role === 'ADMIN' && (
+                                <Link to="/adminpage">
+                                    <span className='tool-bar-span'>Admin Page</span>
+                                </Link>
+                            )}
+                        </div>
                     </div>
-                </div>
-                <img src={user.image} alt='User' className='tool-bar-small-logo' />
-                <h1 className='tool-bar-name-surname'>{`${user.firstName} ${user.lastName}`}</h1>
+                    <img src={user.image} alt='User' className='tool-bar-small-logo' />
+                    <h1 className='tool-bar-name-surname'>{`${user.firstName} ${user.lastName}`}</h1>
                 </div>
 
                 <div className="tool-bar-right-section">
-                <div className='dropdown'>
-                    <button className='settings-btn'>⚙️</button>
-                    <div className='dropdown-content'>
-                    <span className='tool-bar-span'>Light</span>
-                    <span className='tool-bar-span'>Dark</span>
+                    <div className='dropdown'>
+                        <button className='settings-btn'>⚙️</button>
+                        <div className='dropdown-content'>
+                            <span className='tool-bar-span'>Light</span>
+                            <span className='tool-bar-span'>Dark</span>
+                        </div>
                     </div>
-                </div>
-                <img src={logo} alt='LOGO' className='tool-bar-small-logo' />
+                    <img src={logo} alt='LOGO' className='tool-bar-small-logo' />
                 </div>
             </div>
             <hr className='toolbar-break' />
         </>
     );
-
 }
 
 ToolBarComponent.propTypes = {
     user: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        role: PropTypes.string.isRequired, // Add role to prop types validation
     }).isRequired,
-  };
+};
 
 export default ToolBarComponent;

@@ -49,7 +49,6 @@ api.interceptors.response.use(
 // User requests
 export const login = (loginData) => api.post('/api/login', loginData);
 export const register = (userData) => api.post('/api/register', userData);
-export const deleteUser = (id) => api.delete(`/user/delete/${id}`);
 export const getUserById = (id) => api.get(`/user/findById/${id}`);
 export const getUserByEmail = (email) => api.get(`/user/findByEmail/${email}`);
 export const updateUser = (id, userData) => api.put(`/user/updateUser/${id}`, userData);
@@ -68,5 +67,10 @@ export const findTaskById = (id) => api.get(`/tasks/findTaskById/${id}`);
 export const findAllTasksOfTheProject = (projectId) => api.get(`/tasks/findAllTasksOfProject/${projectId}`);
 export const findAllTasksOfUser = (userId) => api.get(`/tasks/findAllTasksOfUser/${userId}`);
 export const updateTask = (id, updatedTask) => api.put(`/tasks/updateTask/${id}`, updatedTask);
+
+// Admin requests
+export const fetchAllUsers =  (userId) => api.get(`/admin/getusers/${userId}`);
+export const deleteUser = (userId) => api.delete(`/admin/user/${userId}`);
+export const updateUserRole = (userId, newRole) => api.put(`/admin/user/${userId}/role`, { newRole });
 
 export default api;
