@@ -111,17 +111,17 @@ function AdminPageComponent() {
             <ToolBarComponent user={user} />
             <div className='admin-page-container'>
                 <h1 className="admin-page-title">User Management</h1>
-                <div className="project-part-search-container">
-                    <form className="project-part-search-form" onSubmit={handleSearch}>
+                <div className="project-part-search-container-admin-page">
+                    <form className="project-part-search-form-admin-page" onSubmit={handleSearch}>
                         <input
-                            className="project-part-search-bar"
+                            className="project-part-search-bar-admin-page"
                             type="text"
                             placeholder="Search users by first or last name..."
                             name="search"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
-                        <button className="project-part-submit-button" type="submit">
+                        <button className="project-part-submit-button-admin-page" type="submit">
                             <i className="fa fa-search">🔍</i>
                         </button>
                     </form>
